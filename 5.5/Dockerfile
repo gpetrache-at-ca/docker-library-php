@@ -58,13 +58,6 @@ RUN yum --enablerepo remi-php55,remi,epel install -y \
     && rm -rf \
         /tmp/* \
         /var/tmp/*
-#    && yum --enablerepo remi-php55,remi,epel install -y \
-#        php-fpdf \
-#        php-gmp \       
-#        php55-runtime \       
-#        php-tidy \       
-#        php-pecl-pdflib \       
-#        php-pecl-runkit \       
 
 USER root
 COPY docker-php-entrypoint /usr/local/bin/

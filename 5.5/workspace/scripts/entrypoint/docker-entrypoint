@@ -1,0 +1,14 @@
+#!/bin/bash -e
+
+if [ -e /usr/local/bin/docker-entrypoint.d ]; then
+    for DOCKER_ENTRYPOINT in /usr/local/bin/docker-entrypoint.d/*.sh; do
+        if [ -f ${DOCKER_ENTRYPOINT} ]; then
+            echo ${DOCKER_ENTRYPOINT}
+            . ${DOCKER_ENTRYPOINT}
+        fi
+    done
+    unset DOCKER_ENTRYPOINT
+fi
+
+echo "Executing command: $@"
+exec "$@"

@@ -61,13 +61,6 @@ RUN yum --enablerepo remi-php55,remi,epel install -y \
     && rm -rf \
         /tmp/* \
         /var/tmp/*
-#    && yum --enablerepo remi-php55,remi,epel install -y \
-#        php-fpdf \
-#        php-gmp \       
-#        php55-runtime \       
-#        php-tidy \       
-#        php-pecl-pdflib \       
-#        php-pecl-runkit \       
 
 RUN sed -i 's/daemonize = yes/daemonize = no/' /etc/php-fpm.conf \
     && sed -i 's/listen.allowed_clients = 127.0.0.1/;listen.allowed_clients = 127.0.0.1/' /etc/php-fpm.d/www.conf \
